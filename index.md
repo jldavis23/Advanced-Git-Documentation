@@ -31,10 +31,21 @@ It is recommended that you not use git rebase on a branch in which you are colla
 **Create a new repo and demonstrate your knowledge of the following items with screenshots:**
 
 *A rebase merge*
+![](rebase_merge.png)
+
+In above example, you can see two branches: master and newFeature. The branch newFeature was originally based off of the 64f943 commit. But after running "git rebase master" on the newFeature branch, it replays the commits in newFeature onto the master branch. This creates a rebase merge and a linear line of history.
 
 *An interactive rebase merge*
 
+![](git_rebase_interactive.png)
+
+These instructions are produce after running "git rebase 4036198 -i" on one of my branches (4036198 is simply the hash for the specific commit I want to rebase to). An interactive rebase merge allows you to make changes to multiple commits at once. This is done by adding a -i after a rebase command. 
+
 *When you shouldn't rebase with a remote repo.*
+
+![](remote_repo.png)
+
+Rebasing with a remote repo can sometimes cause issues, especially if you're working with others. Other developers may have cloned based work off of a branch before it was rebased, which will likely cause conflicts will trying to push their work.
 
 
 ## Git reset, checkout, and revert
@@ -59,7 +70,7 @@ Git revert is a command that allows you point the head back to a previous commit
 
 Git revert is similar to git reset in that it undoes the changes done after the commit you're reverting back to, but instead of orphaning those commits, it creates a revert commit. It does not rewrite history. Checkout does not remove, create, or change any commits. It simple moves the head to a specified branch or commit. All three of these commands change the location of the head.
 
-** When would you use reset, checkout, or revert? Why?**
+**When would you use reset, checkout, or revert? Why?**
 
 Since git reset orphans the discarded commits and makes them inaccessible, it would be used when you make a mistake and want to start over with a clean history. 
 
@@ -71,13 +82,26 @@ Git revert is useful when you want to rollback to a previous commit, but want to
 
 *a Git reset*
 
+![](git_reset.png)
+
+In this visualization, the command "git reset b784be7" was run, which moved the branch and head to the commit with the hash b784be7. The commits that were made after that commit are now orphaned, indicated by the dotted lines. Those commits are no longer accessible.
+
 *a Git checkout*
+
+
 
 *a commit*
 
+
+
 *a Git revert*
 
-##Git submodules
+![](git_revert.png)
+
+In this visualization, the command "git revert b784be7" was run, which created a new commit (a revert commit) which looks the same was commit b784be7. It does not orphan the commits after b784be7, but it does remove their changes. But they can still be accessed later if needed. 
+
+
+## Git submodules
 
 **What are Git submodules?**
 
