@@ -88,11 +88,15 @@ In this visualization, the command "git reset b784be7" was run, which moved the 
 
 *a Git checkout*
 
+![](git_checkout.png)
 
+In this screenshot, you can see how the current working directory is in the branch newBranch. But after running "git checkout master," it moves the head to the branch master.
 
 *a commit*
 
+![](git_commit.png)
 
+In the screenshot, the command "git commit" was run with the message of "new section." This created a new commit. As you can see, one file was changed. 
 
 *a Git revert*
 
